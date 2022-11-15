@@ -8,6 +8,7 @@ void clear() {
     system("cls");
 }
 
+
 void pause() {
     printf("\n\n");
     system("pause");

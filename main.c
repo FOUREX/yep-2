@@ -16,7 +16,7 @@ void pause() {
 
 
 void yep_1() {
-	int count = 30;
+    int count = 30;
     float x, z, result = 0;
 
     printf("Calculate the sequence\n\n\n");

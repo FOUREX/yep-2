@@ -16,20 +16,17 @@ void pause() {
 
 
 void yep_1() {
-    char input[24], *prt;
-    int count = 30;
+	int count = 30;
     float x, z, result = 0;
 
     printf("Calculate the sequence\n\n\n");
     printf("Type numbers:\n\n");
 
     printf("X: ");
-    scanf("%s", input);
-    x = strtof(input, &prt);
+    scanf("%f", &x);
 
-    printf("Z: ");
-    scanf("%s", input);
-    z = strtof(input, &prt);
+	printf("Z: ");
+	scanf("%f", &z);
 
     for (int i = 0; i < count; i++) {
         result += powf(x, (float)i) / powf(z, (float)i);
@@ -51,7 +48,7 @@ void yep_2() {
 
     printf("Names of all months\n\n");
 
-    for (int i = 0; i < sizeof(month_list) / sizeof(month_list[0]); i++) {
+    for (int i = 0; i < 12; i++) {
         printf("\n%s", month_list[i]);
         Sleep(250);
     }
@@ -61,7 +58,7 @@ void yep_2() {
 
 
 void yep_3() {
-    char num[255] = { '-' };
+    char num[255];
     int num_digits = 0;
 
     printf("Determine the number of digits in this number and multiply these digits by 2\n\n\n");
@@ -70,15 +67,14 @@ void yep_3() {
 
     printf("\n");
 
-    for (int i = 0; i < sizeof(num) / sizeof(num[0]); i++) {
+    for (int i = 0; i < 255; i++) {
         char char_num = num[i];
 
-        if (char_num == NULL) {
+        if (!char_num) {
             break;
         }
 
         int _num = (int)char_num - 48;
-
         num_digits++;
 
         printf("%d * 2 = %d\n", _num, _num * 2);
@@ -91,8 +87,7 @@ void yep_3() {
 
 
 int main() {
-    int num;
-    char input[11], *prt;
+    int function;
 
     while (1) {
         clear();
@@ -102,12 +97,11 @@ int main() {
         printf("3. Determine the number of digits in this number and multiply these digits by 2\n");
         printf("4. Leave\n");
         printf("\nSelect function: ");
-        scanf("%s", input);
-        num = strtol(input, &prt, 0);
+        scanf("%d", &function);
 
         clear();
 
-        switch (num) {
+        switch (function) {
             case 1:
                 yep_1();
                 break;
@@ -120,7 +114,7 @@ int main() {
             case 4:
                 exit(0);
             default:
-                printf("Bruh... %d, rly?", num);
+                printf("Bruh... %d, rly?", function);
         }
     }
 }
